@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Şagird Registrasiyası</h2>
+  <form [formGroup]="sagirdForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="number">Nömrəsi</label>
+      <input id="number" formControlName="number" type="number" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="name">Adı</label>
+      <input id="name" formControlName="name" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="surName">Soyadı</label>
+      <input id="surName" formControlName="surName" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="class">Sinifi</label>
+      <input id="class" formControlName="class" type="number" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!sagirdForm.valid">Əlavə et</button>
+  </form>
+  <h3>Qeydiyyatdan keçmiş şagirdlər:</h3>
+  <ul>
+    <li *ngFor="let sagird of sagirdler">
+      {{ sagird.number }} - {{ sagird.name }} - {{ sagird.surName }} - {{ sagird.class }}. sinif
+    </li>
+  </ul>
+</div>

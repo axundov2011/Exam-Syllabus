@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>İmtahan Registrasiyası</h2>
+  <form [formGroup]="imtahanForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="classCode">Dərsin Kodu</label>
+      <input id="classCode" formControlName="classCode" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="pupilNumber">Şagirdin Nömrəsi</label>
+      <input id="pupilNumber" formControlName="pupilNumber" type="number" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="examDate">İmtahan Tarixi</label>
+      <input id="" formControlName="examDate" type="date" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="price">Qiyməti</label>
+      <input id="price" formControlName="price" type="number" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!imtahanForm.valid">Əlavə et</button>
+  </form>
+  <h3>Qeydiyyatdan keçmiş imtahanlar:</h3>
+  <ul>
+    <li *ngFor="let imtahan of imtahanlar">
+      Dərsin Kodu: {{ imtahan.classCode }} - Şagirdin Nömrəsi: {{ imtahan.pupilNumber }} - 
+      İmtahan Tarixi: {{ imtahan.examDate | date:'shortDate' }} - Qiyməti: {{ imtahan.price }}
+    </li>
+  </ul>
+</div>

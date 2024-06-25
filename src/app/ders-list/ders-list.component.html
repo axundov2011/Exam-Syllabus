@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Dərs Registrasiyası</h2>
+  <form [formGroup]="dersForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="code">Dərsin Kodu</label>
+      <input id="code" formControlName="code" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="adi">Dərsin Adı</label>
+      <input id="name" formControlName="name" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="class">Sinif</label>
+      <input id="class" formControlName="class" type="number" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="teacherName">Müəllimin Adı</label>
+      <input id="teacherName" formControlName="teacherName" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="teacherSurName">Müəllimin Soyadı</label>
+      <input id="teacherSurName" formControlName="teacherSurName" type="text" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!dersForm.valid">Əlavə et</button>
+  </form>
+  <h3>Qeydiyyatdan keçmiş dərslər:</h3>
+  <ul>
+    <li *ngFor="let ders of dersler">
+      {{ ders.code }} - {{ ders.name }} - {{ ders.class }}. class - {{ ders.teacherName }} {{ ders.teacherSurName }}
+    </li>
+  </ul>
+</div>
